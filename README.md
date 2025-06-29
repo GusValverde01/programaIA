@@ -12,6 +12,10 @@ Programa web para crear árboles de decisión y ejecutar algoritmos de búsqueda
 - **Identificadores**: Nodos con letras y/o números
 - **Resumen**: Camino recorrido y estadísticas
 
+## Pruebas de Funcionamiento
+![image](https://github.com/user-attachments/assets/ee971ecd-12c7-4497-ac53-f5d9b03fbe7d)
+
+
 ## Instalación
 
 1. Instalar Flask:
