@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda No Informada - Árbol de Decisión</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Búsqueda No Informada en Árboles de Decisión</h1>
+        
+        <div class="panel">
+            <h2>Crear Árbol de Decisión</h2>
+            <form id="treeForm">
+                <div class="form-group">
+                    <label for="rootNode">Nodo Raíz:</label>
+                    <input type="text" id="rootNode" placeholder="A" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rootData">Datos del Nodo Raíz (opcional):</label>
+                    <input type="text" id="rootData" placeholder="Inicio">
+                </div>
+                
+                <div class="form-group">
+                    <label>Conexiones (Padre → Hijo):</label>
+                    <div id="connections">
+                        <div class="connection">
+                            <input type="text" placeholder="Padre" class="parent">
+                            <span>→</span>
+                            <input type="text" placeholder="Hijo" class="child">
+                            <input type="text" placeholder="Datos (opcional)" class="data">
+                            <button type="button" onclick="removeConnection(this)">×</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="addConnection()">+ Agregar Conexión</button>
+                </div>
+                
+                <button type="submit">Generar Árbol</button>
+            </form>
+        </div>
+        
+        <div class="panel">
+            <h2>Visualización del Árbol</h2>
+            <div id="treeVisualization"></div>
+            <div id="treeMessage"></div>
+        </div>
+        
+        <div class="panel">
+            <h2>Algoritmos de Búsqueda</h2>
+            <div class="search-controls">
+                <input type="text" id="searchTarget" placeholder="Nodo a buscar (ej: C)">
+                <button onclick="performSearch('dfs')">Búsqueda por Profundidad (DFS)</button>
+                <button onclick="performSearch('bfs')">Búsqueda por Amplitud (BFS)</button>
+            </div>
+            <div id="searchResults"></div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
